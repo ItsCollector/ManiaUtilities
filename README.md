@@ -4,6 +4,7 @@ A variety of osu!mania utilities bundled into a single cross-platform applicatio
 This project is intended to replace CollectorFLNConverter offering more utilities for beatmap conversion while maintaining the convenience of osu memory reading.
 
 Planned features include:
+- Working on Windows, Linux and Mac
 - Beatmap to FLN
 - Remove SV
 - Remove all LNs
