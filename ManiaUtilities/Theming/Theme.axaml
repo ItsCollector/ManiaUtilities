@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="AccentColor">#FF66AA</Color>
+    <Color x:Key="BgColor">#121218</Color>
+    <Color x:Key="SurfaceColor">#1C1C26</Color>
+    <Color x:Key="BorderColor">#37374B</Color>
+    <Color x:Key="TextPrimColor">#F0F0F8</Color>
+    <Color x:Key="TextMutedColor">#82829B</Color>
+
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
+    <SolidColorBrush x:Key="BgBrush" Color="{StaticResource BgColor}" />
+    <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource SurfaceColor}" />
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}" />
+    <SolidColorBrush x:Key="TextPrimBrush" Color="{StaticResource TextPrimColor}" />
+    <SolidColorBrush x:Key="TextMutedBrush" Color="{StaticResource TextMutedColor}" />
+
+</ResourceDictionary>

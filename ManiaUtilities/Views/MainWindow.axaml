@@ -1,22 +1,51 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:ManiaUtilities.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ManiaUtilities.Views.MainWindow"
         x:DataType="vm:MainViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="ManiaUtilities">
-
+        Title="Mania Utilities"
+        Width="660"
+        Height="900"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BgBrush}">
+    
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainViewModel />
     </Design.DataContext>
 
-    <TextBox Text="{Binding Greeting}"
-             HorizontalAlignment="Center"
-             VerticalAlignment="Center" />
+    <StackPanel Margin="30" Spacing="16">
+
+        <!-- Preset Operation Stack -->
+        <!-- Probably gonna move this below the Map Information Card and make it wider -->
+        <ComboBox ItemsSource="{Binding Presets}"
+                  SelectedItem="{Binding SelectedPreset}"
+                  DisplayMemberBinding="{Binding Name}"
+                  Width="220"
+                  HorizontalAlignment="Right" />
+
+        <!-- Map Information Card -->
+        <Grid HorizontalAlignment="Left">
+            <Border Background="{StaticResource SurfaceBrush}"
+                    BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1"
+                    Padding="20,12,12,12">
+
+                <StackPanel Spacing="8" Margin="0,0,0,0" MinWidth="570">
+                    <TextBlock Text="{Binding MapTitle}" FontSize="26" Foreground="{StaticResource TextPrimBrush}" />
+                    <TextBlock Text="{Binding MapVersion}" FontSize="20" Foreground="{StaticResource AccentBrush}" />
+                    <TextBlock Text="{Binding MapAuthor}" FontSize="16" Foreground="{StaticResource TextMutedBrush}" />
+                </StackPanel>
+            </Border>
+
+            <Rectangle Fill="{StaticResource AccentBrush}"
+                       Width="4"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Stretch"
+                       RadiusX="0" RadiusY="0" />
+        </Grid>
+
+    </StackPanel>
 
 </Window>
