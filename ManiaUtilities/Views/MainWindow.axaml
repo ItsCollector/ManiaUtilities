@@ -11,19 +11,26 @@
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource BgBrush}">
     
+    <!-- Resources: not rendered content, just definitions available to anything inside this Window -->
+    <Window.DataTemplates>
+        <DataTemplate DataType="vm:FlnConversionViewModel">
+            <Expander Header="{Binding Name}"
+                      IsExpanded="{Binding IsExpanded}"
+                      Width="600"
+                      HorizontalContentAlignment="Stretch">
+                <StackPanel Spacing="8" Margin="8">
+                    <TextBlock Text="Gap (ms)" />
+                    <NumericUpDown Value="{Binding GapMs}" />
+                </StackPanel>
+            </Expander>
+        </DataTemplate>
+    </Window.DataTemplates>
+    
     <Design.DataContext>
         <vm:MainViewModel />
     </Design.DataContext>
 
     <StackPanel Margin="30" Spacing="16">
-
-        <!-- Preset Operation Stack -->
-        <ComboBox ItemsSource="{Binding Presets}"
-                  SelectedItem="{Binding SelectedPreset}"
-                  DisplayMemberBinding="{Binding Name}"
-                  Width="220"
-                  HorizontalAlignment="Right" />
-
         <!-- Map Information Card -->
         <Grid HorizontalAlignment="Left">
             <Border Background="{StaticResource SurfaceBrush}"
@@ -44,7 +51,35 @@
                        VerticalAlignment="Stretch"
                        RadiusX="0" RadiusY="0" />
         </Grid>
+        
+        <!-- Presets and Module Options -->
+        <DockPanel MinWidth="570" LastChildFill="False">
+            <TextBlock Text="Operation Stack"
+                       DockPanel.Dock="Left"
+                       VerticalAlignment="Center"
+                       FontSize="16"
+                       Foreground="{StaticResource TextMutedBrush}" />
 
+            <StackPanel Orientation="Horizontal"
+                        DockPanel.Dock="Right"
+                        Spacing="8">
+
+                <!-- Preset Operation Stack -->
+                <ComboBox ItemsSource="{Binding Presets}"
+                          SelectedItem="{Binding SelectedPreset}"
+                          DisplayMemberBinding="{Binding Name}"
+                          Width="100" />
+
+                <!-- All Available Modules -->
+                <ComboBox ItemsSource="{Binding ModuleOptions}"
+                          SelectedItem="{Binding SelectedModuleOption}"
+                          Width="100" />
+            </StackPanel>
+        </DockPanel>
+        
+        <ItemsControl ItemsSource="{Binding OperationStack}"/>
+                     
+        
     </StackPanel>
 
 </Window>
