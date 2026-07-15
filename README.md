@@ -15,3 +15,5 @@ Planned features include:
 - Column swapping (including converting lower keycounts to higher keycounts)
 - and possibly more if get more ideas 
 
+Development Discord: https://discord.gg/QxvHkmzunv
+
